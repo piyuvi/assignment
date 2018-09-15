@@ -266,4 +266,7 @@ export default {
   left:800px;
   font-size: large;
 }
+.elevation-1{
+  margin-top: -200px;
+}
 </style>

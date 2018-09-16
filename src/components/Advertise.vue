@@ -210,8 +210,12 @@ export default {
               entry.campaigns.map((campaign) => {
                 let dateParts = campaign.start_date.split('-')
                 let dateObject = new Date(dateParts[2], dateParts[1] - 1, dateParts[0])
-                if (this.timelineSelected !== 'Custom Date' || this.timelineSelected !== 'Today') {
+                if (this.timelineSelected !== 'Custom Date') {
                   if (dateObject >= this.timeDateRange && dateObject < new Date()) {
+                    campaignDetails.push(campaign)
+                  }
+                } else if (this.timelineSelected === 'Today') {
+                  if (dateObject.toDateString() === this.timeDateRange.toDateString()) {
                     campaignDetails.push(campaign)
                   }
                 } else {
